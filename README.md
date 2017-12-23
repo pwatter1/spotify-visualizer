@@ -22,7 +22,7 @@ Spotify currently does not have a visualizer, so I plan to try and create one.
 	- `pip install requests`
 
 - Run the spotify credentials script in the terminal
-	- `./spotifyCredentials.sh`
+	- `./spotifyCredentialsExport.sh`
 - Run spotify.py and authenticate 
 	- `python spotify.py`
 - Run the download script with discover_weekly.txt
