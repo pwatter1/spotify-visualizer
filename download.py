@@ -55,22 +55,14 @@ def youtube_search(options):
 		soup = bs(request.text, 'lxml')
 		download_link = 'http://convertmp3.io%s' % soup.find(id='download')['href']	
 
-	destination = './DiscoverWeekly'
-
-	if not os.path.exists(destination):	
-		os.makedirs(destination)
-	else:
-		shutil.rmtree(destination)
-		os.makedirs(destination)
-
 	command = ['wget', 
 			   '-c',
 			   '-q',  
 			   '--show-progress', 
-			   '--output-document=%s.mp3' % video_names[0].replace(' ', '_'),
-			   download_link,
-			   '--directory-prefix=%s' % destination]
-	print command	
+			   '-O',
+			   'DiscoverWeekly/%s.mp3' % video_names[0].replace(' ','_'),
+			   download_link]
+
 	output = subprocess.call(command)
 
 
@@ -81,6 +73,14 @@ if __name__ == '__main__':
 	parser.add_argument('--max-results', help='Max results', default=1)
 	args = parser.parse_args()
 	
+	destination = 'DiscoverWeekly'
+	
+	if not os.path.exists(destination):
+		os.makedirs(destination)
+	#else:
+	#	shutil.rmtree(destination)
+	#	os.makedirs(destination)
+
 	try:
 		if not args.f:
 			youtube_search(args)
