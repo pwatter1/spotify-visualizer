@@ -1,4 +1,10 @@
-import json, requests, argparse, subprocess
+"""
+Download mp3 file off Youtube from query flag.
+Download playlist mp3s from Spotify integration.
+"""
+
+import json, requests, argparse
+import subprocess, os, shutil, sys
 from bs4 import BeautifulSoup as bs
 from googleapiclient.discovery import build
 from googleapiclient.errors import HttpError
@@ -16,9 +22,9 @@ def youtube_search(options):
 					developerKey=DEVELOPER_KEY)
 	
 	search_response = youtube.search().list(
-    	q=options.q,
-    	part='id,snippet',
-    	maxResults=options.max_results
+		q=options.q,
+		part='id,snippet',
+		maxResults=options.max_results
   	).execute()
 
 	videos = []
@@ -32,7 +38,7 @@ def youtube_search(options):
 			video_names.append(search_result["snippet"]["title"])
 				
 	if len(videos):
-		print 'Videos:', '\n'.join(videos), '\n'
+		print 'Video: ', '\n'.join(videos)
 	else:
 		print 'Error: Search returned nothing! Check API credentials.'
 		return
@@ -46,10 +52,25 @@ def youtube_search(options):
 		download_link = data['link']	
 
 	except ValueError:
-		soup = bs(request.text, "lxml")
+		soup = bs(request.text, 'lxml')
 		download_link = 'http://convertmp3.io%s' % soup.find(id='download')['href']	
 
-	command = ['wget', '-c', '-q', '--show-progress', '--output-document=%s.mp3' % video_names[0], download_link]
+	destination = './DiscoverWeekly'
+
+	if not os.path.exists(destination):	
+		os.makedirs(destination)
+	else:
+		shutil.rmtree(destination)
+		os.makedirs(destination)
+
+	command = ['wget', 
+			   '-c',
+			   '-q',  
+			   '--show-progress', 
+			   '--output-document=%s.mp3' % video_names[0].replace(' ', '_'),
+			   download_link,
+			   '--directory-prefix=%s' % destination]
+	print command	
 	output = subprocess.call(command)
 
 
