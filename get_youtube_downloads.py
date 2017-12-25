@@ -77,9 +77,6 @@ if __name__ == '__main__':
 	
 	if not os.path.exists(destination):
 		os.makedirs(destination)
-	#else:
-	#	shutil.rmtree(destination)
-	#	os.makedirs(destination)
 
 	try:
 		if not args.f:
