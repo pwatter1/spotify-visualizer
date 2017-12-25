@@ -18,8 +18,8 @@ def youtube_search(options):
 	Query Youtube and download result as mp3 file.
 	"""
 	youtube = build(YOUTUBE_API_SERVICE_NAME,
-					YOUTUBE_API_VERSION,
-					developerKey=DEVELOPER_KEY)
+			YOUTUBE_API_VERSION,
+			developerKey=DEVELOPER_KEY)
 	
 	search_response = youtube.search().list(
 		q=options.q,
@@ -56,12 +56,12 @@ def youtube_search(options):
 		download_link = 'http://convertmp3.io%s' % soup.find(id='download')['href']	
 
 	command = ['wget', 
-			   '-c',
-			   '-q',  
-			   '--show-progress', 
-			   '-O',
-			   'DiscoverWeekly/%s.mp3' % video_names[0].replace(' ','_'),
-			   download_link]
+		   '-c',
+		   '-q',  
+		   '--show-progress', 
+		   '-O',
+		   'DiscoverWeekly/%s.mp3' % video_names[0].replace(' ','_'),
+		   download_link]
 
 	output = subprocess.call(command)
 
