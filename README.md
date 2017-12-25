@@ -31,3 +31,10 @@ Also wrote scripts to grab songs from a user's Discover Weekly playlist, downloa
 	- `python get_youtube_downloads.py -f discover_weekly.txt`
 - Run the visualizer
 	- `python visualizer.py`
+	
+## Future ideas
+- Visualizer gets input from the microphone audio
+	- Eventually want to come back and have it use the Mp3 files directly
+- Make a GUI for the app
+- Pygame was giving errors playing the Mp3 files but I'd like to figure out why and switch back to it from Playsound
+	- Pygame is more heavily used and supported
