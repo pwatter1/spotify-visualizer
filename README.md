@@ -11,6 +11,7 @@ Also wrote scripts to grab songs from a user's Discover Weekly playlist, downloa
 - OpenSimplex
 - Pyaudio
 - Playsound
+- Youtube API
 
 ## How to run
 - Clone the repo `git clone https://github.com/pwatter1/spotify-visualizer.git && cd spotify-visualizer`
