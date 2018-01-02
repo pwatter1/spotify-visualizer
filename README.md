@@ -31,8 +31,8 @@ Also wrote scripts to grab songs from a user's Discover Weekly playlist, downloa
 	- `python get_spotify_playlist.py 'username'`
 - Run the download script with discover_weekly.txt
 	- `python get_youtube_downloads.py -f discover_weekly.txt`
-- Run the visualizer
-	- `python visualizer.py`
+- Run the visualizer and audio
+	- `./runVisualizer.sh`
 	
 ## Future ideas
 - Visualizer gets input from the microphone audio
