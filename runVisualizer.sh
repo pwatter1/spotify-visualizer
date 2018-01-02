@@ -1,3 +1,3 @@
 #!/bin/bash
 # run scripts concurrently
-python visualizer.py && python playMp3.py
+python visualizer.py && python play_mp3s.py
