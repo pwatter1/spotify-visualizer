@@ -1,6 +1,6 @@
 # Spotify Visualizer
 
-Spotify currently does not have a visualizer, so I plan to try and create one. <br/>
+Spotify currently does not have a visualizer, so I plan to try and create an integration. <br/>
 Also wrote scripts to grab songs from a user's Discover Weekly playlist, download them, and play them with the visualizer.
 
 ## Technologies
@@ -27,7 +27,7 @@ Also wrote scripts to grab songs from a user's Discover Weekly playlist, downloa
 - Run the spotify credentials script in the terminal
 	- `source spotifyCredentialsExport.sh`
 	- Use source so it runs in the current process and not the child or else no effect
-- Run spotify.py and authenticate 
+- Run playlist script and authenticate 
 	- `python get_spotify_playlist.py 'username'`
 - Run the download script with discover_weekly.txt
 	- `python get_youtube_downloads.py -f discover_weekly.txt`
