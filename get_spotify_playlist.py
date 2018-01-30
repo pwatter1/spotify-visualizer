@@ -30,10 +30,10 @@ def main():
 		for playlist in playlists['items']:
 			if playlist['owner']['id'] == username:
 				global outfile
-				playlist_name = str(playlist['name'])
-				if not os.path.exists(playlist_name):
-                    			os.makedirs(playlist_name)
-				outfile = open(os.path.join(('./' + playlist_name), (playlist_name + '.txt')), 'w')
+				directory = 'spotify_tracks'
+				if not os.path.exists(directory):
+                    			os.makedirs(directory)
+				outfile = open(os.path.join(('./' + directory), (str(playlist['name']) + '.txt')), 'w')
 				results = sp.user_playlist(username, playlist['id'], fields='tracks,next')
 				tracks = results['tracks']
 				show_tracks(tracks)
