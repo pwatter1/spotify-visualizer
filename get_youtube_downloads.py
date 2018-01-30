@@ -73,7 +73,7 @@ if __name__ == '__main__':
 	parser.add_argument('--max-results', help='Max results', default=1)
 	args = parser.parse_args()
 	
-	destination = 'DiscoverWeekly'
+	destination = 'spotify_tracks'
 	
 	if not os.path.exists(destination):
 		os.makedirs(destination)
