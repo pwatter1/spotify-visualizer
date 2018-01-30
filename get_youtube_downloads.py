@@ -60,7 +60,7 @@ def youtube_search(options):
 		   '-q',  
 		   '--show-progress', 
 		   '-O',
-		   'DiscoverWeekly/%s.mp3' % video_names[0].replace(' ','_'),
+		   'spotify_tracks/%s.mp3' % video_names[0].replace(' ','_'),
 		   download_link]
 
 	output = subprocess.call(command)
