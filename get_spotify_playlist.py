@@ -3,7 +3,7 @@ Grab track names off of user's Discover Weekly Playlist.
 Save names into a text file to be called by download.py.
 """
 
-import sys
+import sys, os
 import spotipy
 import spotipy.util as util
 
@@ -31,6 +31,8 @@ def main():
 			if playlist['owner']['id'] == username:
 				global outfile
 				playlist_name = str(playlist['name'])
+				if not os.path.exists(playlist_name):
+                    			os.makedirs(playlist_name)
 				outfile = open(os.path.join(('./' + playlist_name), (playlist_name + '.txt')), 'w')
 				results = sp.user_playlist(username, playlist['id'], fields='tracks,next')
 				tracks = results['tracks']
