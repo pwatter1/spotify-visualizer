@@ -29,15 +29,17 @@ def main():
 		playlists = sp.user_playlists(username)
 		for playlist in playlists['items']:
 			if playlist['owner']['id'] == username:
-				global f
-				f = open(str(playlist['name']+'.txt'), 'w')
+				global outfile
+				playlist_name = str(playlist['name'])
+				outfile = open(os.path.join(('./' + playlist_name), (playlist_name + '.txt')), 'w')
 				results = sp.user_playlist(username, playlist['id'], fields='tracks,next')
 				tracks = results['tracks']
 				show_tracks(tracks)
 				while tracks['next']:
 					tracks = sp.next(tracks)
 					show_tracks(tracks)
-				f.close()
+				outfile.close()
+
 	else:
 		print "Can't get token for ", username
 
