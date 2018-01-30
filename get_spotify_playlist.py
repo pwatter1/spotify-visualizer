@@ -11,10 +11,10 @@ def show_tracks(results):
 		for i, item in enumerate(results['items']):
 			track = item['track']
 			print "%32.32s %s" % (track['artists'][0]['name'], track['name'])
-			f.write((track['artists'][0]['name']).encode('utf-8'))
-			f.write(' ')
-			f.write((track['name']).encode('utf-8'))
-			f.write('\n')
+			outfile.write((track['artists'][0]['name']).encode('utf-8'))
+			outfile.write(' ')
+			outfile.write((track['name']).encode('utf-8'))
+			outfile.write('\n')
 
 def main():
 	if len(sys.argv)<2:
