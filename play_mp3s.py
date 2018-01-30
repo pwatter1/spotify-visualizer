@@ -3,12 +3,13 @@ import playsound
 
 def play():
 	"""
-	Plays mp3 files from the DiscoverWeekly playlist.
+	Plays mp3 files from the user's playlist.
 	"""
 	files = []
 	file_index = 0
+	directory = 'spotify_tracks'
 	
-	for filename in os.listdir("./DiscoverWeekly"):
+	for filename in os.listdir(directory):
 		if filename.endswith(".mp3"):
 			files.append(filename)
 	
