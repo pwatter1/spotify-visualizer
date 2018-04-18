@@ -1,7 +1,8 @@
 # Spotify Visualizer
 
 Spotify currently does not have a visualizer, so I plan to try and create an integration. <br/>
-Also wrote scripts to grab songs from a user's Discover Weekly playlist, download them, and play them with the visualizer.
+Also wrote scripts to grab songs from a user's Discover Weekly playlist, download them, and play them with the visualizer. <br/>
+Couldn't figure out how to get the visualizer to work off the mp3 files instead of the speakers, but plan to do so in the future.
 
 ## Technologies
 - Spotipy
