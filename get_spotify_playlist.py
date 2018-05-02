@@ -8,13 +8,13 @@ import spotipy
 import spotipy.util as util
 
 def show_tracks(results):
-		for i, item in enumerate(results['items']):
-			track = item['track']
-			print "%32.32s %s" % (track['artists'][0]['name'], track['name'])
-			outfile.write((track['artists'][0]['name']).encode('utf-8'))
-			outfile.write(' ')
-			outfile.write((track['name']).encode('utf-8'))
-			outfile.write('\n')
+	for i, item in enumerate(results['items']):
+		track = item['track']
+		print "%32.32s %s" % (track['artists'][0]['name'], track['name'])
+		outfile.write((track['artists'][0]['name']).encode('utf-8'))
+		outfile.write(' ')
+		outfile.write((track['name']).encode('utf-8'))
+		outfile.write('\n')
 
 def main():
 	if len(sys.argv)<2:
